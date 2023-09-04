@@ -1,0 +1,11 @@
+{
+    "name": "Canvas Chrome Viewer",
+    "version": "1.0.0",
+    "description": "view tasks on Canvas",
+    "manifest_version": 3,
+    "author": "Avi Mehta and Soham Patil",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Canvas Viewer"
+    }
+}
