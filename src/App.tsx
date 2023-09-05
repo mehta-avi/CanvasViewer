@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Sheet from '@mui/joy/Sheet';
+import Stack from '@mui/joy/Stack';
+import Card from '@mui/joy/Card';
+import CardContent from '@mui/joy/CardContent';
+import Typography from '@mui/joy/Typography';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>CanvasViewer</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Sheet sx={{ width: 300, height: 600 }}>
+      <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Typography level='title-lg'>
+          CanvasViewer
+        </Typography>
+        <Card variant="soft">
+          <CardContent>
+            <Typography level="title-md">Event 1</Typography>
+            <Typography>Description of the event.</Typography>
+          </CardContent>
+        </Card>
+        <Card variant="soft">
+          <CardContent>
+            <Typography level="title-md">Event 2</Typography>
+            <Typography>Description of the event.</Typography>
+          </CardContent>
+        </Card>
+      </Stack>
+    </Sheet>
+  );
 }
-
-export default App
