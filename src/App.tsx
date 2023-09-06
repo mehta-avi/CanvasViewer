@@ -1,7 +1,7 @@
 import Sheet from '@mui/joy/Sheet';
 import Stack from '@mui/joy/Stack';
 import Typography from '@mui/joy/Typography';
-import EventCard from './EventCard';
+import DayOfEvents from './DayOfEvents';
 
 export default function App() {
 
@@ -9,7 +9,7 @@ export default function App() {
     {
       id: 1,
       class: 'COMPUTER SCIENCE 1ST YR SEM',
-      event: 'Elevator Pitch',
+      event: 'User Analysis Reflection',
       date: '9/10/2023',
       time: '11:59 pm',
       points: '100',
@@ -19,11 +19,24 @@ export default function App() {
       id: 2,
       class: 'PUBLIC SPEAKING',
       event: 'REAL PS 2',
-      date: '9/11/2023',
+      date: '9/13/2023',
       time: '11:59 pm',
       points: '10'
     }
   ]
+
+  function groupEventsByDate(events: any[]) {
+    return events.reduce((acc, event) => {
+      const date = event.date;
+      if (!acc[date]) {
+        acc[date] = [];
+      }
+      acc[date].push(event);
+      return acc;
+    }, {} as Record<string, any[]>);
+  }
+
+  const groupedEvents = groupEventsByDate(events);
 
   return (
     <Sheet sx={{ width: 350, height: 600 }}>
@@ -37,7 +50,9 @@ export default function App() {
         <Typography level="h2">
           Canvas Events
         </Typography>
-        {events.map(event => <EventCard key={event.id} eventDetail={event} />)}
+        {Object.keys(groupedEvents).map(date => (
+          <DayOfEvents key={date} eventsForDay={groupedEvents[date]} />
+        ))}
       </Stack>
     </Sheet>
   );
