@@ -12,6 +12,8 @@ export default function App() {
       event: 'Elevator Pitch',
       date: '9/10/2023',
       time: '11:59 pm',
+      points: '100',
+      teacher: 'Ms. teacher'
     },
     {
       id: 2,
@@ -19,6 +21,7 @@ export default function App() {
       event: 'REAL PS 2',
       date: '9/11/2023',
       time: '11:59 pm',
+      points: '10'
     }
   ]
 
