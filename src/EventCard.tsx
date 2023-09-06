@@ -1,12 +1,12 @@
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
-import CardOverflow from '@mui/joy/CardOverflow';
 import IconButton from '@mui/joy/IconButton';
 import Tooltip from '@mui/joy/Tooltip';
 import Typography from '@mui/joy/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Grid from '@mui/joy/Grid';
 import MoreEventInformation from './MoreEventInformation';
+import CardOverflow from '@mui/joy/CardOverflow';
 
 type EventDetailType = {
     id: number;
@@ -36,17 +36,19 @@ export default function EventCard({ eventDetail }: { eventDetail: EventDetailTyp
                     display: 'flex',
                 }}
             >
+                <Typography>
+                    {eventDetail.time}
+                </Typography>
             </CardOverflow>
             <CardContent>
                 <Typography level="body-xs">{eventDetail.class}</Typography>
-                <Typography level="h4">{eventDetail.event}</Typography>
                 <Grid
                     container
                     direction="row"
                     justifyContent="space-between"
                     alignItems="flex-end"
                 >
-                    <Typography level="body-xs">Due {eventDetail.time} on {eventDetail.date}</Typography>
+                    <Typography level="h4">{eventDetail.event}</Typography>
                     <Tooltip title={<MoreEventInformation key={eventDetail.id} eventDetail={eventDetail} />} variant="soft" sx={{ mb: -1, mr: -1, mt: -2 }}>
                         <IconButton>
                             <ExpandMoreIcon />
